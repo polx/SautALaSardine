@@ -4,6 +4,7 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProperty
 from kivy.vector import Vector
+from kivy.config import Config
 from kivy.clock import Clock
 from random import randint
 
@@ -95,6 +96,7 @@ class Pio(Widget):
 
     def bump(self, depth):
         print("bump!")
+        Sounds.bumpSound.play()
         self.move_by([0,depth])
 
 
@@ -107,14 +109,17 @@ class Paysage(Widget):
     A slowly moving landscape towards the left.
     """
     brokenLine = None
+    brokenLineSteps = [0,10,0,0,50,0,0,20,30,50,0,10,50,100,20,0,0,10,20,10]
+    brokenLineLength = 0
+    screenWidth = 500
+
 
     def build_broken_line(self):
-        brokenLineSteps = [0,10,0,0,50,0,0,20,30,50,0,10,50,100,20,0,0,10,20,10]
-        brokenLineSlope = 0.05 # number of y pixels per x pixel
+        brokenLineSlope = 0.0 # number of y pixels per x pixel
         points = []
         step = 50
         x,base_y = 200,200
-        for h in brokenLineSteps:
+        for h in Paysage.brokenLineSteps:
             points.append(x)
             x = x + step
             base_y = base_y + int(brokenLineSlope*step)
@@ -124,10 +129,20 @@ class Paysage(Widget):
         self.brokenLine = line
         return line
 
+
+
+
     def move_on(self, velocity):
         points = self.brokenLine.points
         for i in range(0,len(points)):
             points[i] = points[i] = points[i] + velocity[i % 2]
+
+        k = 0
+        while k*2 < len(Paysage.brokenLineSteps):
+            if points[2*k]<0:
+             points[2*k] = points[2*k]+Paysage.screenWidth
+            k = k+1
+
 
         # don't joke me, the below line will indeed attract the interest of kivy to redraw
         self.brokenLine.points = points
@@ -158,7 +173,9 @@ class TheGame(Widget):
 
 
 
+class Sounds:
 
+    bumpSound = SoundLoader.load("bump1-lq.mp3")
 
 class SauteLaSardineApp(App):
     def build(self):
@@ -168,6 +185,7 @@ class SauteLaSardineApp(App):
         game.add_widget(game.pio)
         game.pio.build()
         game.pio.paysage = game.paysage
+        Paysage.screenWidth = Config.getint('graphics','width')
         Clock.schedule_interval(game.update, 1.0/60.0)
 
         return game
