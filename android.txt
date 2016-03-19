@@ -1,0 +1,3 @@
+title=Saute la sardine
+author=Pionniers de la 1ere Jeanne d'Arc de Forbach
+orientation=landscape
