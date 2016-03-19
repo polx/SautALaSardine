@@ -6,6 +6,7 @@ from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProper
 from kivy.vector import Vector
 from kivy.config import Config
 from kivy.clock import Clock
+from kivy.uix.image import Image
 from random import randint
 
 
@@ -14,12 +15,19 @@ from random import randint
 class Pio(Widget):
 
     line = None
+    image = None
     velocity = [0,0]
     accel = [0, -20.81]
 
     def build(self):
         with self.canvas:
             self.line = Line(points=[500,100,500,200], width=5)
+            self.image = Image(source='visage.png',pos=(-120, 0),size=(120, 240))
+            self.reposImage()
+            ## return self.image
+
+    def reposImage(self):
+        self.image.pos = self.line.points[0],self.line.points[1]
 
     def on_touch_move(self, touch):
         ##if touch.x < self.width / 3:
@@ -55,6 +63,7 @@ class Pio(Widget):
             points[2*i+1] =delta[1]+points[2*i+1]
             i= i+1
         self.line.points = self.line.points
+        self.reposImage()
 
     def lowest_point(self):
         points = self.line.points
@@ -175,7 +184,7 @@ class TheGame(Widget):
 
 class Sounds:
 
-    bumpSound = SoundLoader.load("bump1-lq.mp3")
+    bumpSound = SoundLoader.load("sounds/hitting-wooden-pole-pdsounds-stephan.wav")
 
 class SauteLaSardineApp(App):
     def build(self):

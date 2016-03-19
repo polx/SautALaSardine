@@ -17,7 +17,10 @@
    id="svg4152"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="visage.svg">
+   sodipodi:docname="visage.svg"
+   inkscape:export-filename="/tmp/visage.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4154">
     <inkscape:perspective
@@ -98,7 +101,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.56233743"
-     inkscape:cx="27.59228"
+     inkscape:cx="-259.60183"
      inkscape:cy="666.10112"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -110,10 +113,10 @@
      inkscape:snap-nodes="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="715"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1920"
+     inkscape:window-height="1075"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -131,7 +134,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
