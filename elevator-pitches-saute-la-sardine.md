@@ -5,6 +5,8 @@ Mouvements spéciaux:
 - LeRomu
 - Tendeurs
 - Poursuivi par une hache
+- Touts est tourne 30 degres vers la droite pour avoir une unite des dessins
+- 
 
 **Matthieu**
 - Système graphique infini
@@ -23,3 +25,4 @@ Mouvements spéciaux:
 - Coffre avec un niveau bonus, caché + item ultimes
 - des "easter eggs" un peu partout
 - système d'argent pour acheter des items (par exemple le bouton mute, chaussettes rayées pour sauter plus haut, …)
+- un obstacle (coffre) ou si on saute dedans on doit essayer de resortir en appuyant souvent la barre d espace sinon on meurt
