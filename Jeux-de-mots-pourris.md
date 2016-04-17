@@ -5,3 +5,6 @@
 
 "Qu'est-ce que je fais? Je roule une pelle."
   (en roulant une pelle)
+
+"Dit moi Paul, tes plaquards ne sont pas vide ou bien?"
+ Theo
